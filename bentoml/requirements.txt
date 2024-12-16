@@ -1,0 +1,5 @@
+bentoml
+torch
+Pillow
+numpy
+ultralytics

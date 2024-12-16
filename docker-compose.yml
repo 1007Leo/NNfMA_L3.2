@@ -1,0 +1,19 @@
+services:
+  bento:
+    image: bento_ml
+    container_name: bento
+    build:
+      context: ./bentoml
+      dockerfile: Dockerfile.bentoml
+    ports:
+      - 3000:3000
+  webapp:
+    image: streamlit
+    container_name: app
+    build:
+      context: ./streamlit
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - bento
